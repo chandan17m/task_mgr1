@@ -2,15 +2,16 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
-function Login() {
+function Signup() {
   const navigate = useNavigate();
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleSignup = (e: React.FormEvent) => {
     e.preventDefault();
-    // Login logic will be added here
-    console.log('Login attempt:', { email, password });
+    // Signup logic will be added here
+    console.log('Signup attempt:', { name, email, password });
   };
 
   return (
@@ -28,11 +29,30 @@ function Login() {
 
           {/* Heading */}
           <h1 className="text-5xl sm:text-6xl font-bold text-blue-600 text-center mb-12">
-            Login
+            Create Account
           </h1>
 
-          {/* Login Form */}
-          <form onSubmit={handleLogin} className="space-y-8">
+          {/* Signup Form */}
+          <form onSubmit={handleSignup} className="space-y-8">
+            {/* Name Input */}
+            <div className="space-y-3">
+              <label
+                htmlFor="name"
+                className="block text-lg font-semibold text-gray-700"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full px-4 py-4 text-lg border-2 border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
             {/* Email Input */}
             <div className="space-y-3">
               <label
@@ -71,12 +91,12 @@ function Login() {
               />
             </div>
 
-            {/* Login Button */}
+            {/* Signup Button */}
             <button
               type="submit"
               className="w-full h-16 bg-blue-600 text-white text-xl font-semibold rounded-xl shadow-lg hover:bg-blue-700 hover:shadow-xl hover:scale-105 transition-all duration-300 mt-8"
             >
-              Login
+              Signup
             </button>
           </form>
         </div>
@@ -85,4 +105,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;

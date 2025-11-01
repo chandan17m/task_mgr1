@@ -22,7 +22,10 @@ function Home() {
           </button>
 
           {/* Signup Button */}
-          <button className="w-full sm:w-64 h-20 bg-white text-blue-600 text-xl font-semibold rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:bg-blue-50">
+          <button
+            onClick={() => navigate('/signup')}
+            className="w-full sm:w-64 h-20 bg-white text-blue-600 text-xl font-semibold rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:bg-blue-50"
+          >
             Signup
           </button>
 
